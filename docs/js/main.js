@@ -60,10 +60,12 @@ function stopEventListeners () {
 
 function getCanvas () {
   spinner.classList.remove('d-none')
-  html2canvas(target)
+  html2canvas(target, { scale: 3 })
     .then(canvas => {
+       console.log(canvas)
+       document.body.appendChild(canvas)
        canvas.toBlob(function(blob) {
-         download(blob) 
+         // download(blob) 
        })
     }, 'image/jpeg', 1)
 }
