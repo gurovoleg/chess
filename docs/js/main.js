@@ -66,8 +66,8 @@ function getCanvas () {
        canvas.toBlob(function(blob) {
          console.log('blob data: ', blob)
          download(blob) 
-       })
-    }, 'image/jpeg', 1)
+       }, 'image/jpeg', 1)
+    })
 }
 
 function download (blob) {
