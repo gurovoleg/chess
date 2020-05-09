@@ -72,12 +72,13 @@ function getCanvas () {
 
 function download (blob) {
   fileName = inputFile.value || 'image.jpg'
-  url = window.URL.createObjectURL(blob)
-  link.href = url
+  // берём Blob и создаём уникальный URL для него в формате blob:<origin>/<uuid>
+  link.href = URL.createObjectURL(blob)
   link.download = fileName
   link.click()
   spinner.classList.add('d-none')
-  window.URL.revokeObjectURL(url)
+  // удаляем внутреннюю ссылку на Blob, что позволит браузеру очистить память
+  URL.revokeObjectURL(link.href)
 }
 
 
