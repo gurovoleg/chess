@@ -12,8 +12,7 @@ let sparePieces = false
 const isMSBrowser = navigator.userAgent.includes('MSIE') || navigator.userAgent.includes('Edge')
 
 // const m = navigator.userAgent.match(/(opera|chrome|safari|firefox|edge|msie)\/?\s*(\d+)/i)
-const m = navigator.userAgent.match(/(opera|chrome|safari|firefox|edge|msie)/i)
-console.log(m)
+const m = navigator.userAgent.match(/(opera|chrome|safari|firefox|edge|msie)/i) // tests
 
 createBoard()
 
@@ -75,9 +74,7 @@ function getCanvas () {
            navigator.msSaveBlob(blob, inputFile.value || 'image.jpg');   
            spinner.classList.add('d-none')
          } else {
-           saveAs(blob, 'image.jpg')
-           spinner.classList.add('d-none')
-           // download(blob) 
+           download(blob) 
          }
        }, 'image/jpeg', 1)
     })
