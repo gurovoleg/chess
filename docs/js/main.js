@@ -49,7 +49,7 @@ function startEventListeners () {
   clearButton.addEventListener('click', board.clear)
   flipButton.addEventListener('click', board.flip)
   spareInput.addEventListener('change', handleInputChange)
-  saveButton.addEventListener('click', getCanvas)
+  saveButton.addEventListener('click', saveFile)
 }
 
 function stopEventListeners () {
@@ -57,11 +57,11 @@ function stopEventListeners () {
   clearButton.removeEventListener('click', board.clear)
   flipButton.removeEventListener('click', board.flip)
   spareInput.removeEventListener('change', handleInputChange)
-  saveButton.removeEventListener('click', getCanvas)
+  saveButton.removeEventListener('click', saveFile)
 }
 
 
-function getCanvas () {
+function saveFile () {
   spinner.classList.remove('d-none')
   html2canvas(target, { scale: 3 })
     .then(function (canvas) {
