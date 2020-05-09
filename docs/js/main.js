@@ -64,6 +64,7 @@ function getCanvas () {
     .then(canvas => {
        // document.body.appendChild(canvas)
        canvas.toBlob(function(blob) {
+         console.log('blob data: ', blob)
          download(blob) 
        })
     }, 'image/jpeg', 1)
