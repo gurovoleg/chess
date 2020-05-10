@@ -3,7 +3,7 @@ const clearButton = document.querySelector('#clear')
 const initButton = document.querySelector('#start')
 const flipButton = document.querySelector('#flip')
 const spareInput = document.querySelector('#spare')
-const target = document.querySelector("#board")
+// const target = document.querySelector("#board")
 const link = document.querySelector("#download")
 const spinner = document.querySelector("#spinner")
 const inputFile = document.querySelector("#file")
@@ -11,7 +11,6 @@ let board = null
 let sparePieces = false
 
 // const m = navigator.userAgent.match(/(opera|chrome|safari|firefox|edge|msie)\/?\s*(\d+)/i)
-
 
 createBoard()
 
@@ -62,9 +61,13 @@ function stopEventListeners () {
 
 
 function saveFile () {
+  // Задаем доску по внутреннему класс самой библиотеки, иначе если через нашу обертку, то получаем лишние пискили справой стороны
+  // библиотека так доску генерит, поэтму проще брать блок, который сама библиотека генерит
+  const target = document.querySelector(".board-b72b1")
   spinner.classList.remove('d-none')
   html2canvas(target, { scale: 3 })
     .then(function (canvas) {
+       // console.log(canvas)
        // document.body.appendChild(canvas)
        canvas.toBlob(function(blob) {
          console.log('blob data: ', blob)
