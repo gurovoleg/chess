@@ -2,13 +2,13 @@ const saveButton = document.querySelector('#save')
 const clearButton = document.querySelector('#clear')
 const initButton = document.querySelector('#start')
 const flipButton = document.querySelector('#flip')
-const spareInput = document.querySelector('#spare')
+// const spareInput = document.querySelector('#spare')
 // const target = document.querySelector("#board")
 const link = document.querySelector("#download")
 const spinner = document.querySelector("#spinner")
-const inputFile = document.querySelector("#file")
+// const inputFile = document.querySelector("#file")
 let board = null
-let sparePieces = false
+let sparePieces = true
 
 // const m = navigator.userAgent.match(/(opera|chrome|safari|firefox|edge|msie)\/?\s*(\d+)/i)
 
@@ -18,7 +18,7 @@ createBoard()
 function createBoard () {
   const config = {
     draggable: true,
-    position: 'start',
+    // position: 'start',
     dropOffBoard: 'trash',
     sparePieces: sparePieces
 	}
@@ -47,7 +47,7 @@ function startEventListeners () {
   initButton.addEventListener('click', board.start)
   clearButton.addEventListener('click', board.clear)
   flipButton.addEventListener('click', board.flip)
-  spareInput.addEventListener('change', handleInputChange)
+  // spareInput.addEventListener('change', handleInputChange)
   saveButton.addEventListener('click', saveFile)
 }
 
@@ -71,7 +71,8 @@ function saveFile () {
        // document.body.appendChild(canvas)
        canvas.toBlob(function(blob) {
          console.log('blob data: ', blob)
-         saveAs(blob, inputFile.value || 'image.jpg');   
+         saveAs(blob, 'image.jpg');   
+         // saveAs(blob, inputFile.value || 'image.jpg');   
          spinner.classList.add('d-none')
          // download(blob) 
        }, 'image/jpeg', 1)
